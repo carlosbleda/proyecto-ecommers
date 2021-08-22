@@ -51,7 +51,7 @@ function onSignIn(googleUser) { //funcion de inicio de sesion del boton de googl
     sessionStorage.setItem('Name: ' + profile.getName());
     sessionStorage.setItem('Image URL: ' + profile.getImageUrl());
     sessionStorage.setItem('Email: ' + profile.getEmail());
-    location.href = "index.html" //redireccion a la pagina principal
+    window.location = "index.html" //redireccion a la pagina principal
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
