@@ -22,10 +22,11 @@ function listadeproductos(articulos) {
                         <small class="text-muted">` + product.soldCount + ` artículos</small>
                     </div>
                     <p>` + product.description + `</p>
+                    <p>` + product.cost + product.currency + `</p>
                 </div>
-             
+                
             </div>
-            <p>` + product.cost + product.currency + `</p>
+            
         </div>
         `
 
