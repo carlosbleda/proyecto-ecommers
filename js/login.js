@@ -45,13 +45,15 @@ function validar() {
 }
 
 
-function onSignIn(googleUser) { //funcion de inicio de sesion del boton de google
+//funcion de inicio de sesion del boton de google
+function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    sessionStorage.setItem('ID: ' + profile.getId())
-    sessionStorage.setItem('Name: ' + profile.getName());
-    sessionStorage.setItem('Image URL: ' + profile.getImageUrl());
-    sessionStorage.setItem('Email: ' + profile.getEmail());
-    window.location = "index.html" //redireccion a la pagina principal
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+window.location = "index.html" //redireccion a la pagina principal
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
