@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levanto del Local Storage</title>
+    
+</head>
+<body>
+    Ingresaste el nombre: <span id="user"></span> <br><br>
+    En sessionStorage se guardó : <span id="sesion"></span><br><br>
+    
+    <button onclick="localStorage.clear(); alert('Usuario desconectado'); location.href='index.html';"> Desconectar</button>
+    <script>
+        var usuario = localStorage.getItem("usuario"); //getItem Obtiene el dato de la posición "usuario"
+        var sesion = sessionStorage.getItem("usuario");
+        document.getElementById('user').innerHTML=usuario;
+        document.getElementById('sesion').innerHTML=sesion;
+        //Nótese que si cerramos el navegador y volvemos a abrir, el dato sigue almacenado
+    </script>
+</body>
+</html>
