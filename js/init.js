@@ -25,6 +25,11 @@ function login() {
     }
 }
 
+/* function comparar(a, b) {
+
+    if (a.cost < b.cost) { return -1 }
+    if (a.cost > b.cost) { return 1 } else { return 0 }
+} */
 
 var getJSONData = function(url) {
     var result = {};
@@ -62,7 +67,7 @@ function signOut() {
     var auth2 = gapi.auth2.getAuthInstance().disconnect();
     auth2.signOut().then(function() {
         console.log('User signed out.');
-        location.href = '/login.html'
+        location.href = '/index.html'
 
     });
 }
