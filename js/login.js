@@ -7,8 +7,8 @@ function validar() {
     if (usuario.value == "" || contraseña.value == "") {
         cargarErrores();
     } else {
-        localStorage.setItem("usuario", usuario.value); //setItem almacena el dato en la posición "usuario"
-        localStorage.setItem("password", contraseña.value); // Almaceno la contraseña
+        sessionStorage.setItem("usuario", usuario.value); //setItem almacena el dato en la posición "usuario"
+
         location.href = 'index.html'
 
     }

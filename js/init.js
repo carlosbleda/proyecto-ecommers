@@ -6,7 +6,7 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
-let guardardatos = localStorage.getItem('usuario');
+let guardardatos = sessionStorage.getItem('usuario');
 
 
 var showSpinner = function() {
@@ -25,11 +25,7 @@ function login() {
     }
 }
 
-/* function comparar(a, b) {
 
-    if (a.cost < b.cost) { return -1 }
-    if (a.cost > b.cost) { return 1 } else { return 0 }
-} */
 
 var getJSONData = function(url) {
     var result = {};
@@ -72,10 +68,16 @@ function signOut() {
     });
 }
 
+function mostrarusuario() {
+    var usuario = document.getElementById('datos');
+    usuario.innerHTML += 'Te logeaste como :' + ' ' + guardardatos;
+    usuario.style.color = 'white';
+
+}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
 
-    // datoslogin();
+    mostrarusuario();
 });
