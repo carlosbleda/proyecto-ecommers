@@ -49,7 +49,7 @@ function onSignIn(googleUser) { //funcion de inicio de sesion del boton de googl
         localStorage.setItem('Image URL: ', profile.getImageUrl());
         localStorage.setItem('Email: ', profile.getEmail()); // This is null if the 'email' scope is not present.
 
-        window.location.href = "/proyecto/index.html" //redireccion a la pagina principal
+        location.href = "/proyecto/index.html" //redireccion a la pagina principal
     }
 
 }
