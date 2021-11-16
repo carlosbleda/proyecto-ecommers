@@ -43,10 +43,10 @@ function validar() {
 
 function onSignIn(googleUser) { //funcion de inicio de sesion del boton de google
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    localStorage.setItem('ID: ', profile.getId()); // Do not send to your backend! Use an ID token instead.
+    localStorage.setItem('Name: ', profile.getName());
+    localStorage.setItem('Image URL: ', profile.getImageUrl());
+    localStorage.setItem('Email: ', profile.getEmail()); // This is null if the 'email' scope is not present.
 
     windows.location.href = "proyecto/index.html" //redireccion a la pagina principal
 }
