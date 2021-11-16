@@ -48,7 +48,7 @@ function onSignIn(googleUser) { //funcion de inicio de sesion del boton de googl
     localStorage.setItem('Image URL: ', profile.getImageUrl());
     localStorage.setItem('Email: ', profile.getEmail()); // This is null if the 'email' scope is not present.
 
-    location.href = "proyecto/index.html" //redireccion a la pagina principal
+    window.location.href = "/proyecto/index.html" //redireccion a la pagina principal
 }
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
