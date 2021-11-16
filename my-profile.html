@@ -40,18 +40,78 @@
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-            <a class="py-2 d-none d-md-inline-block" id="datos"></a>
-            <a class="py-2 d-none d-md-inline-block" onclick=" signOut()" href="login.html">Desconectar</a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="datos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                    <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+                    <a href="login.html"><button type="button" class="btn-danger" onclick="desconectar()">Desconectar</button></a>
+                </div>
+            </div>
+
         </div>
     </nav>
     <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-            <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+        <h5 class="text-center">Registro</h5>
+        <div class="row d-flex">
+            <div class="col-md-6 left">
+                <div class="d-flex justify-content-between">
+                    <div id="contenedorImg" class="custom-file w-50" id="customFile">
+                        <input type="file" class="custom-file-input" id="imagen" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="exampleInputFile">
+                          Eliga Su Imagen De Perfil
+                        </label>
+
+                    </div>
+                    <img id="imganencargada" src='' style="order: -1;" class="img-thumbnail rounded-circle" />
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+
+                <form>
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" aria-describedby="emailHelp" placeholder="Nombre">
+                        <span id="mensaje1"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+                        <span id="mensaje2"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Edad">Email</label>
+                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <span id="mensaje3"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Edad">Edad</label>
+                        <input type="number" class="form-control w-50" id="Edad" placeholder="Edad">
+                        <span id="mensaje4"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefono">Telefono</label>
+                        <input type="number" class="form-control" id="Telefono" placeholder="Telefono">
+                        <span id="mensaje5"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Direccion">Direccion</label>
+                        <input type="text" class="form-control" id="Direccion" placeholder="Direccion">
+                        <span id="mensaje6"></span>
+                    </div>
+                    <span class="text-danger" id="error"></span>
+                    <div>
+                        <button type="button" id="boton" class="btn btn-primary">Guardar Datos</button>
+                        <button type="button" id="limpiar" class="btn btn-danger">Limpiar Datos</button>
+                    </div>
+                </form>
+            </div>
         </div>
+    </div>
     </div>
     <footer class="text-muted bg-light">
         <div class="container">
@@ -59,11 +119,7 @@
             <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
         </div>
     </footer>
-    <div class="alert fade alert-success" role="alert" id="alertResult">
-        <span id="resultSpan"></span>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+
     </div>
     <div id="spinner-wrapper">
         <div class="lds-ring">

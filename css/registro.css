@@ -1,0 +1,38 @@
+    body {
+        background: url(../img/register.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    .container {
+        align-content: center;
+        padding: 2rem;
+        padding-left: 10rem;
+        align-content: center;
+        text-align: center;
+    }
+    
+    .form-group col-md-4 {
+        color: black;
+    }
+    
+    input {
+        width: 50%;
+        padding: 12px;
+        padding-top: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+    
+    form-check {
+        width: 50%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }

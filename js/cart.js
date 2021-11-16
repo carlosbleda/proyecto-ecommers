@@ -1,44 +1,79 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-
-var arrayautos = [];
+var carrito = {};
 
 function listadeproductos(array) {
-
     let htmlContentToAppend = "";
-    for (let i = 0; i < array.length; i++) {
-        let product = array[i];
-
+    for (let i = 0; i < array.articles.length; i++) {
+        var product = array.articles[i]
+        if (product.currency == 'USD') { product.unitCost = product.unitCost * 40 }
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                <img src="` + product.imgSrc + `" alt="` + `" class="img-thumbnail">
+            <div class="card p-2 m-3" style="width: 18rem;">
+            <img src="` + product.src + `" class="card-img-bottom mx-auto d-block w-50 rounded-circle" alt="...">
+                <div class="card-body">
+                 <h5 class="card-title">` + product.name + `</h5>
+                 <p class="card-text">` + product.unitCost + ' UYU' + `</p>
+                 <label for="" class="visually-hidden">` + product.count + ` </label>
+                    <input type="text" onChange="calculando(` + product.unitCost + `);"  id="` + i + `" class="form-control boton" placeholder="Cantidad de productos">
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">` + product.name + `</h4>
-                       
-                        <small class="text-muted">` + product.cost + ` artículos</small>
-                    </div>
-                    <p>` + product.description + `</p>
-                </div>
-            </div>
-        </div>
-        `
+             </div>
+               `
 
-        document.getElementById("container").innerHTML = htmlContentToAppend;
     }
-
+    document.getElementById("productos").innerHTML = htmlContentToAppend;
 }
 
-document.addEventListener("DOMContentLoaded", function(e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj) {
-        if (resultObj.status === "ok") {
-            arrayproductos = resultObj.data;
+function calculando(precio) {
+    let input = document.getElementById('0').value;
+    let input2 = document.getElementById('1').value;
+    let html = ""
 
-            listadeproductos(arrayproductos);
+    if (input !== "" || input2 !== "") {
+        let cantidad = input;
+        let cantidad2 = input2
+        var subtotal = Number(cantidad) + Number(cantidad2);
+        var resultado = subtotal * precio;
+        var resultado2 = cantidad2 * precio;
+        console
+        let IVA = resultado * 0.22;
+        let total = resultado * 1.22;
+        html += ` 
+        <p class="text-left">SubTotal: <span id="subtotal">` + resultado + ` UYU</span></p>
+        <p class="text-left">Iva 22%: <span id="iva">` + IVA + ` UYU</span></p>
+        <p class="text-left">Total: <span id="total">` + total + ` UYU</span></p>`;
+        document.getElementById('resultado').innerHTML = html
+        console.log(cantidad)
+        console.log(subtotal)
+    } else {
+        html += ` 
+        <p class="text-left">SubTotal: <span id="subtotal">` + 0 + ` UYU</span></p>
+        <p class="text-left">Iva 22%: <span id="iva">` + 0 + ` UYU</span></p>
+        <p class="text-left">Total: <span id="total">` + 0 + ` UYU</span></p>`;
+        document.getElementById('resultado').innerHTML = html
+    }
+}
+
+function vaciar() {
+    let input = document.getElementById('UYU');
+    let input2 = document.getElementById('USD');
+    let iva = document.getElementById('iva');
+    let subtotal = document.getElementById('subtotal');
+    let total = document.getElementById('total');
+    input.value = "";
+    input2.value = "";
+    iva.textContent = "";
+    subtotal.textContent = "";
+    total.textContent = "";
+}
+
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(CART_INFO_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            carrito = resultObj.data;
+            listadeproductos(carrito);
         }
     });
+    document.getElementById("boton-vaciar").addEventListener("click", function() {
+        vaciar();
+    });
+
 });

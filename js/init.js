@@ -4,9 +4,9 @@ const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/12
 const PRODUCTS_URL = "https://japdevdep.github.io/ecommerce-api/product/all.json";
 const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678.json";
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
-const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
+const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/654.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
-let guardardatos = sessionStorage.getItem('usuario');
+var guardardatos = sessionStorage.getItem('usuario');
 
 
 var showSpinner = function() {
@@ -17,14 +17,23 @@ var hideSpinner = function() {
     document.getElementById("spinner-wrapper").style.display = "none";
 }
 
+
+function mostrarusuario() {
+    var usuario = document.getElementById('datos');
+    usuario.innerHTML += 'Usuario:' + ' ' + guardardatos;
+    usuario.style.color = 'white';
+
+}
+
 function login() {
-    if (guardardatos == null) {
+    if (guardardatos === null) {
+
         location.href = 'login.html'
     } else {
 
+
     }
 }
-
 
 
 var getJSONData = function(url) {
@@ -52,32 +61,26 @@ var getJSONData = function(url) {
         });
 }
 
-
 function desconectar() {
     localStorage.clear();
     window.location = 'login.html'
 }
 
-
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance().disconnect();
     auth2.signOut().then(function() {
         console.log('User signed out.');
-        location.href = '/index.html'
+        location.href = '/login.html'
 
     });
 }
 
-function mostrarusuario() {
-    var usuario = document.getElementById('datos');
-    usuario.innerHTML += 'Te logeaste como :' + ' ' + guardardatos;
-    usuario.style.color = 'white';
-
-}
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
 
     mostrarusuario();
+
+    // datoslogin();
 });
