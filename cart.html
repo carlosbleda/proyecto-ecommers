@@ -54,36 +54,61 @@
         </div>
     </nav>
     <div class="container">
-        <div class="col d-table">
+        <div class="row">
             <h2 class="text-lg-center">Carrito</h2>
             <p>Proceso de compra</p>
-            <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Seleccion del producto</div>
+            <div>
+                <div class="progress" id="progressbar">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">Seleccion del producto</div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div id="show-modal">
+                </div>
+            </div>
+            <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div id="compraok"></div>
             </div>
             <hr>
-            <div class="border bg-light">
-                <div>
-                    <div class=" row p-3 border bg-dark" id="productos"></div>
-                </div>
-                <div class=" row p-3 border bg-light" id="resultado">
-                    <p class="text-left">SubTotal: <span id="subtotal"></span></p>
-                    <p class="text-left">Iva 22%: <span id="iva"></span></p>
-                    <p class="text-left">Total: <span id="total"></span></p>
 
+            <div class="border bg-light">
+                <div class="row">
+                    <div class="row col-6 h-25 w-75 border bg-dark" id="productos"></div>
+                    <div class="col-md-6 text-center float-right">
+                        <div class="col-md 12 border bg-light">
+                            <span>Productos Seleccionados: </span>
+                            <hr>
+                            <div class="row" id="cantidadProductos"></div>
+                            <div class="text-danger" id="error"></div>
+                            <div id="precios">
+                                <hr>
+                                <p class="text-left">SubTotal: <span id="subtotal"></span></p>
+                                <p class="text-left">Iva 22%: <span id="iva"></span></p>
+                                <p class="text-left">USD: <span id="dolar"></span></p>
+                                <p class="text-left">Costo De Envio: <span id="costenvio"></span></p>
+                                <p class="text-left">Total: <span id="total"></span></p>
+                            </div>
+                        </div>
+                        <button id="boton-comprar" class="btn btn-success float-right">Realizar compra</button>
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                    </div>
                 </div>
-                <button id="boton-vaciar" type="reset" class="btn btn-danger">Vaciar</button>
-                <button id="boton-comprar" class="btn btn-success float-right">Realizar compra</button>
-            </div>
-        </div>
-        <div id="spinner-wrapper">
-            <div class="lds-ring">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
             </div>
         </div>
     </div>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dropzone.js"></script>
