@@ -52,7 +52,7 @@ function mostrarproductos(array, valor) {
         let productos = array[i];
         let nombre = array[i].name.toLowerCase(); //tomo los datos en la variable nombre de los elemento.name en productos y los transformo en minusculas
         let descripcion = array[i].description.toLowerCase(); //tomo los datos en la variable nombre de los elemento.name en productos y los transformo en minusculas
-        if (nombre.search(valor) !== -1 && descripcion.search(valor) !== -1) { //filtra la busqueda con los datos en description y nombre
+        if (nombre.search(valor) !== -1 || descripcion.search(valor) !== -1) { //filtra la busqueda con los datos en description y nombre
             if (((minCount == undefined) || (minCount != undefined && parseInt(productos.cost) >= minCount)) &&
                 ((maxCount == undefined) || (maxCount != undefined && parseInt(productos.cost) <= maxCount))) {
 
@@ -72,9 +72,7 @@ function mostrarproductos(array, valor) {
                 </div>
             `
             }
-
-
-        } else { htmlContentToAppend = 'No Se Encontraron Resultados' }
+        }
     }
     document.getElementById("container").innerHTML = htmlContentToAppend;
 }
@@ -122,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
     document.getElementById("buscar").addEventListener("keyup", function() { //evento que cuando se teclea en el input con id buscar para que muestre las coincidencias
         let buscador = document.getElementById('buscar').value;
-        mostrarproductos(buscador, productos);
+        console.log(buscador);
+        mostrarproductos(productos, buscador);
     });
 });

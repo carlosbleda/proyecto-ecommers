@@ -77,20 +77,6 @@ function borrarDatos() {
     document.getElementById('limpiar').style.display = "none";
 }
 
-function cargarimg() {
-    const img = localStorage.getItem('img');
-    if (img !== null) {
-        document.getElementById('imganencargada').setAttribute('src', img);
-        document.getElementById('imganencargada').setAttribute('width', '40%');
-        document.getElementById('imganencargada').style.display = 'block'
-        document.getElementById('contenedorImg').style.display = 'none';
-    } else {
-        document.getElementById('contenedorImg').style.display = 'inline';
-        document.getElementById('imganencargada').style.display = 'none';
-    }
-
-}
-
 document.addEventListener("DOMContentLoaded", function(e) {
     document.getElementById('limpiar').style.display = "none";
     let datosCargados = local.getItem('dato');
@@ -101,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     }
     document.getElementById('boton').addEventListener('click', function() {
         modificardatos();
-        cargarimg();
     });
     document.getElementById('limpiar').addEventListener('click', function() {
         borrarDatos();
